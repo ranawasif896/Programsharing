@@ -1,0 +1,335 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+   <meta charset="UTF-8">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>Program Sharing Platform</title>
+
+   <style>
+
+      body {
+
+          font-family: white, sans-serif;
+
+          background: linear-gradient(145deg, #e0e0e0, #f4f4f9);
+
+          margin: 0;
+
+          padding: 0;
+
+          overflow-x: hidden;
+
+      }
+
+
+
+      header {
+
+          background: linear-gradient(145deg, #6200ea, #3700b3);
+
+          color: red;
+
+          padding: 2rem 0;
+
+          text-align: center;
+
+          position: relative;
+
+          animation: slideIn 1.5s ease-out;
+
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+
+      }
+
+
+
+      header h1, header h2 {
+
+          margin: 0.5rem 0;
+
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+      }
+
+
+
+      .container {
+
+          max-width: 800px;
+
+          margin: 3rem auto;
+
+          background: gray;
+
+          border-radius: 12px;
+
+          box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1), -5px -5px 20px rgba(255, 255, 255, 0.7);
+
+          padding: 2rem;
+
+          transform: scale(0.9);
+
+          transition: transform 0.5s ease;
+
+      }
+
+
+
+      .container:hover {
+
+          transform: scale(1);
+
+      }
+
+
+
+      .form-group {
+
+          margin-bottom: 1.5rem;
+
+      }
+
+
+
+      label {
+
+          display: block;
+
+          font-weight: bold;
+
+          margin-bottom: 0.5rem;
+
+      }
+
+
+
+      input, textarea {
+
+          width: 100%;
+
+          padding: 0.75rem;
+
+          border: 1px solid #ddd;
+
+          border-radius: 8px;
+
+          background: #f9f9f9;
+
+          box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1), inset -2px -2px 5px rgba(255, 255, 255, 0.7);
+
+      }
+
+
+
+      button {
+
+          background: linear-gradient(145deg, #6200ea, #3700b3);
+
+          color: greeen;
+
+          padding: 0.75rem 2rem;
+
+          border: none;
+
+          border-radius: 8px;
+
+          cursor: pointer;
+
+          font-size: 1.2rem;
+
+          box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.7);
+
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      }
+
+
+
+      button:hover {
+
+          transform: translateY(-5px);
+
+          box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3), -10px -10px 20px rgba(255, 255, 255, 0.7);
+
+      }
+
+
+
+  </style>
+
+</head>
+
+<body>
+
+   <header>
+
+      <h1 style="color: rgb(0, 0, 0);">Program Sharing Platform</h1>
+
+      <h2 style="color: chartreuse;">MASROOR ALI</h2>
+       <h3 style="color: chartreuse;">Muhammad Wasif<H3>
+      <h2 style="color: springgreen;">Hussnain Khan <h2>
+
+   </header>
+
+   <div class="container">
+
+      <h2>Post Your Program</h2>
+
+      <form action="" method="post" onsubmit="return sendEmail(event)">
+
+         <div class="form-group">
+
+            <label for="senderName">Your Name</label>
+
+            <input type="text" id="senderName" name="senderName" placeholder="Enter your name" required>
+
+         </div>
+
+         <div class="form-group">
+
+            <label for="senderEmail">Your Email</label>
+
+            <input type="email" id="senderEmail" name="senderEmail" placeholder="Enter your email" required>
+
+         </div>
+
+         <div class="form-group">
+
+            <label for="recipientEmail">Recipient's Email</label>
+
+            <input type="email" id="recipientEmail" name="recipientEmail" placeholder="Enter recipient's email"
+               required>
+
+         </div>
+
+         <div class="form-group">
+
+            <label for="title">Program Title</label>
+
+            <input type="text" id="title" name="title" placeholder="Enter your program title" required>
+
+         </div>
+
+         <div class="form-group">
+
+            <label for="language">Programming Language</label>
+
+            <input type="text" id="language" name="language" placeholder="e.g., Python, C++" required>
+
+         </div>
+
+         <div class="form-group">
+
+            <label for="code">Program Code</label>
+
+            <textarea id="code" name="code" rows="10" placeholder="Paste your code here" required></textarea>
+
+         </div>
+
+         <div class="form-group">
+
+            <label for="issue">Describe Your Issue</label>
+
+            <textarea id="issue" name="issue" rows="5" placeholder="Briefly describe the issue with your code"
+               required></textarea>
+
+         </div>
+
+         <button type="submit">Submit Program</button>
+
+      </form>
+
+   </div>
+
+   <script>
+      
+      function sendEmail(event) {
+
+         event.preventDefault();
+
+         const senderName = document.getElementById('senderName').value;
+
+         const senderEmail = document.getElementById('senderEmail').value;
+
+         const recipientEmail = document.getElementById('recipientEmail').value;
+
+         const title = document.getElementById('title').value;
+
+         const language = document.getElementById('language').value;
+
+         const code = document.getElementById('code').value;
+
+         const issue = document.getElementById('issue').value;
+         // Email data to send to the specified owners and recipient
+
+         const emailData = {
+
+            subject: `New Program Submission: ${ title }`,
+
+            body:` You have received a new program submission.\n\nName: ${ senderName } \nEmail: ${ senderEmail } \n\nReceiver Email: ${ recipientEmail } \n\nTitle: ${ title } \nLanguage: ${ language } \n\nCode: \n${ code } \n\nIssue: \n${ issue },`
+
+      }  // Sends to owners and recipient
+function emailSend(receiverEmail) {
+         fetch(`https://formsubmit.co/ajax/${receiverEmail}`, {
+
+            method: 'POST',
+
+            headers: {
+
+               'Content-Type': 'application/json'
+
+            },
+
+            body: JSON.stringify(emailData)
+
+         })
+
+            .then(response => {
+
+               if (response.ok) {
+
+                  alert('Program submitted successfully!');
+
+                  document.querySelector('form').reset();
+
+               } else {
+
+                  alert('Failed to send the program. Please try again.');
+
+               }
+
+            })
+
+            .catch(error => {
+
+               console.error('Error:', error);
+
+               alert('An error occurred. Please try again later.');
+
+            });
+      }
+      emailSend(recipientEmail)
+      emailSend('masroorali0729@gmail.com')
+      emailSend('hussnainkhan6264@gmail.com')
+      emailSend('ranawasif896@gmail.com')
+            };
+
+     
+
+      sendEmail()
+
+       
+   </script>
+
+
+</body>
+
+</html>
