@@ -1,29 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-   <meta charset="UTF-8">
-
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Program Sharing Platform</title>
-
    <style>
-
       body {
-
           font-family: white, sans-serif;
-
           background: linear-gradient(145deg, #e0e0e0, #f4f4f9);
-
           margin: 0;
-
           padding: 0;
-
           overflow-x: hidden;
-
       }
-
 
 
       header {
